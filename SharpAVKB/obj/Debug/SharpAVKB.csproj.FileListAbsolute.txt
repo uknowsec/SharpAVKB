@@ -1,0 +1,9 @@
+D:\vscode\c_test\SharpAVKB\SharpAVKB\bin\Debug\SharpAVKB.exe
+D:\vscode\c_test\SharpAVKB\SharpAVKB\bin\Debug\SharpAVKB.pdb
+D:\vscode\c_test\SharpAVKB\SharpAVKB\bin\Debug\Newtonsoft.Json.dll
+D:\vscode\c_test\SharpAVKB\SharpAVKB\bin\Debug\Newtonsoft.Json.pdb
+D:\vscode\c_test\SharpAVKB\SharpAVKB\bin\Debug\Newtonsoft.Json.xml
+D:\vscode\c_test\SharpAVKB\SharpAVKB\obj\Debug\SharpAVKB.csprojResolveAssemblyReference.cache
+D:\vscode\c_test\SharpAVKB\SharpAVKB\obj\Debug\SharpAVKB.exe
+D:\vscode\c_test\SharpAVKB\SharpAVKB\obj\Debug\SharpAVKB.pdb
+D:\vscode\c_test\SharpAVKB\SharpAVKB\bin\Debug\SharpAVKB.exe.config
