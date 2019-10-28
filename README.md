@@ -22,11 +22,6 @@ Usage: SharpAVKB.exe -AV
 execute-assembly /path/to/SharpAVKB.exe
 ```
 
-## dll与exe打包
-```
-ilmerge /ndebug /target:exe /out:D:\vscode\c_test\SharpAVKB\SharpAVKB\bin\Debug\New_SharpAVKB.exe /log D:\vscode\c_test\SharpAVKB\SharpAVKB\bin\Debug\SharpAVKB.exe /log D:\vscode\c_test\SharpAVKB\SharpAVKB\bin\Debug\Newtonsoft.Json.dll /targetplatform:v4
-```
-
 
 
 ## Reference: 
