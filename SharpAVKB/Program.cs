@@ -1,10 +1,9 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
-using Newtonsoft.Json.Linq;
 
 namespace SharpAVKB
 {
@@ -15,6 +14,7 @@ namespace SharpAVKB
             if (args.Length == 0)
             {
                 Console.WriteLine("\n\rAuthor: Uknow");
+                Console.WriteLine("Github: https://github.com/uknowsec/SharpAVKB");
                 Console.WriteLine("Usage: SharpAVKB.exe -AV");
                 Console.WriteLine("       SharpAVKB.exe -KB");
 
@@ -34,18 +34,130 @@ namespace SharpAVKB
 
         public static void av()
         {
-            string av_list = "{\"360tray.exe\":\"360安全卫士-实时保护\",\"360safe.exe\":\"360安全卫士-主程序\",\"ZhuDongFangYu.exe\":\"360安全卫士-主动防御\",\"360sd.exe\":\"360杀毒\",\"a2guard.exe\":\"a-squared杀毒\",\"ad-watch.exe\":\"Lavasoft杀毒\",\"cleaner8.exe\":\"The Cleaner杀毒\",\"vba32lder.exe\":\"vb32杀毒\",\"MongoosaGUI.exe\":\"Mongoosa杀毒\",\"CorantiControlCenter32.exe\":\"Coranti2012杀毒\",\"F-PROT.exe\":\"F-Prot AntiVirus\",\"CMCTrayIcon.exe\":\"CMC杀毒\",\"K7TSecurity.exe\":\"K7杀毒\",\"UnThreat.exe\":\"UnThreat杀毒\",\"CKSoftShiedAntivirus4.exe\":\"Shield Antivirus杀毒\",\"AVWatchService.exe\":\"VIRUSfighter杀毒\",\"ArcaTasksService.exe\":\"ArcaVir杀毒\",\"iptray.exe\":\"Immunet杀毒\",\"PSafeSysTray.exe\":\"PSafe杀毒\",\"nspupsvc.exe\":\"nProtect杀毒\",\"SpywareTerminatorShield.exe\":\"SpywareTerminator杀毒\",\"BKavService.exe\":\"Bkav杀毒\",\"MsMpEng.exe\":\"Microsoft Security Essentials\",\"SBAMSvc.exe\":\"VIPRE\",\"ccSvcHst.exe\":\"Norton杀毒\",\"f-secure.exe\":\"冰岛\",\"avp.exe\":\"Kaspersky\",\"KvMonXP.exe\":\"江民杀毒\",\"RavMonD.exe\":\"瑞星杀毒\",\"Mcshield.exe\":\"Mcafee\",\"Tbmon.exe\":\"Mcafee\",\"Frameworkservice.exe\":\"Mcafee\",\"egui.exe\":\"ESET NOD32\",\"ekrn.exe\":\"ESET NOD32\",\"eguiProxy.exe\":\"ESET NOD32\",\"kxetray.exe\":\"金山毒霸\",\"knsdtray.exe\":\"可牛杀毒\",\"TMBMSRV.exe\":\"趋势杀毒\",\"avcenter.exe\":\"Avira(小红伞)\",\"avguard.exe\":\"Avira(小红伞)\",\"avgnt.exe\":\"Avira(小红伞)\",\"sched.exe\":\"Avira(小红伞)\",\"ashDisp.exe\":\"Avast网络安全\",\"rtvscan.exe\":\"诺顿杀毒\",\"ccapp.exe\":\"Symantec Norton\",\"NPFMntor.exe\":\"Norton杀毒软件相关进程\",\"ccSetMgr.exe\":\"赛门铁克\",\"ccRegVfy.exe\":\"Norton杀毒软件自身完整性检查程序\",\"vptray.exe\":\"Norton病毒防火墙-盾牌图标程序\",\"ksafe.exe\":\"金山卫士\",\"QQPCRTP.exe\":\"QQ电脑管家\",\"Miner.exe\":\"流量矿石\",\"AYAgent.exe\":\"韩国胶囊\",\"patray.exe\":\"安博士\",\"V3Svc.exe\":\"安博士V3\",\"avgwdsvc.exe\":\"AVG杀毒\",\"QUHLPSVC.exe\":\"QUICK HEAL杀毒\",\"mssecess.exe\":\"微软杀毒\",\"SavProgress.exe\":\"Sophos杀毒\",\"fsavgui.exe\":\"F-Secure杀毒\",\"vsserv.exe\":\"比特梵德\",\"remupd.exe\":\"熊猫卫士\",\"FortiTray.exe\":\"飞塔\",\"safedog.exe\":\"安全狗\",\"parmor.exe\":\"木马克星\",\"Iparmor.exe.exe\":\"木马克星\",\"beikesan.exe\":\"贝壳云安全\",\"KSWebShield.exe\":\"金山网盾\",\"TrojanHunter.exe\":\"木马猎手\",\"GG.exe\":\"巨盾网游安全盾\",\"adam.exe\":\"绿鹰安全精灵\",\"AST.exe\":\"超级巡警\",\"ananwidget.exe\":\"墨者安全专家\",\"AVK.exe\":\"GData\",\"avg.exe\":\"AVG Anti-Virus\",\"spidernt.exe\":\"Dr.web\",\"avgaurd.exe\":\"Avira Antivir\",\"vsmon.exe\":\"ZoneAlarm\",\"cpf.exe\":\"Comodo\",\"outpost.exe\":\"Outpost Firewall\",\"rfwmain.exe\":\"瑞星防火墙\",\"kpfwtray.exe\":\"金山网镖\",\"FYFireWall.exe\":\"风云防火墙\",\"MPMon.exe\":\"微点主动防御\",\"pfw.exe\":\"天网防火墙\",\"1433.exe\":\"在扫1433\",\"DUB.exe\":\"在爆破\",\"ServUDaemon.exe\":\"发现S-U\",\"BaiduSdSvc.exe\":\"百度杀毒-服务进程\",\"BaiduSdTray.exe\":\"百度杀毒-托盘进程\",\"BaiduSd.exe\":\"百度杀毒-主程序\",\"SafeDogGuardCenter.exe\":\"安全狗\",\"safedogupdatecenter.exe\":\"安全狗\",\"safedogguardcenter.exe\":\"安全狗\",\"SafeDogSiteIIS.exe\":\"安全狗\",\"SafeDogTray.exe\":\"安全狗\",\"SafeDogServerUI.exe\":\"安全狗\",\"D_Safe_Manage.exe\":\"D盾\",\"d_manage.exe\":\"D盾\",\"yunsuo_agent_service.exe\":\"云锁\",\"yunsuo_agent_daemon.exe\":\"云锁\",\"HwsPanel.exe\":\"护卫神\",\"hws_ui.exe\":\"护卫神\",\"hws.exe\":\"护卫神\",\"hwsd.exe\":\"护卫神\",\"hipstray.exe\":\"火绒\",\"wsctrl.exe\":\"火绒\",\"usysdiag.exe\":\"火绒\",\"WEBSCANX.EXE\":\"网络病毒克星\",\"SPHINX.EXE\":\"SPHINX防火墙\",\"bddownloader.exe\":\"百度卫士\",\"baiduansvx.exe\":\"百度卫士-主进程\",\"AvastUI.exe\":\"Avast!5主程序\"}";
-            var o = JObject.Parse(av_list);
+
+            Dictionary<string, string> av_list = new Dictionary<string, string>();
+            av_list.Add("360tray.exe", "360安全卫士-实时保护");
+            av_list.Add("360safe.exe", "360安全卫士-主程序");
+            av_list.Add("ZhuDongFangYu.exe", "360安全卫士-主动防御");
+            av_list.Add("360sd.exe", "360杀毒");
+            av_list.Add("a2guard.exe", "a-squared杀毒");
+            av_list.Add("ad-watch.exe", "Lavasoft杀毒");
+            av_list.Add("cleaner8.exe", "The Cleaner杀毒");
+            av_list.Add("vba32lder.exe", "vb32杀毒");
+            av_list.Add("MongoosaGUI.exe", "Mongoosa杀毒");
+            av_list.Add("CorantiControlCenter32.exe", "Coranti2012杀毒");
+            av_list.Add("F-PROT.exe", "F-Prot AntiVirus");
+            av_list.Add("CMCTrayIcon.exe", "CMC杀毒");
+            av_list.Add("K7TSecurity.exe", "K7杀毒");
+            av_list.Add("UnThreat.exe", "UnThreat杀毒");
+            av_list.Add("CKSoftShiedAntivirus4.exe", "Shield Antivirus杀毒");
+            av_list.Add("AVWatchService.exe", "VIRUSfighter杀毒");
+            av_list.Add("ArcaTasksService.exe", "ArcaVir杀毒");
+            av_list.Add("iptray.exe", "Immunet杀毒");
+            av_list.Add("PSafeSysTray.exe", "PSafe杀毒");
+            av_list.Add("nspupsvc.exe", "nProtect杀毒");
+            av_list.Add("SpywareTerminatorShield.exe", "SpywareTerminator杀毒");
+            av_list.Add("BKavService.exe", "Bkav杀毒");
+            av_list.Add("MsMpEng.exe", "Microsoft Security Essentials");
+            av_list.Add("SBAMSvc.exe", "VIPRE");
+            av_list.Add("ccSvcHst.exe", "Norton杀毒");
+            av_list.Add("f-secure.exe", "冰岛");
+            av_list.Add("avp.exe", "Kaspersky");
+            av_list.Add("KvMonXP.exe", "江民杀毒");
+            av_list.Add("RavMonD.exe", "瑞星杀毒");
+            av_list.Add("Mcshield.exe", "Mcafee");
+            av_list.Add("Tbmon.exe", "Mcafee");
+            av_list.Add("Frameworkservice.exe", "Mcafee");
+            av_list.Add("egui.exe", "ESET NOD32");
+            av_list.Add("ekrn.exe", "ESET NOD32");
+            av_list.Add("eguiProxy.exe", "ESET NOD32");
+            av_list.Add("kxetray.exe", "金山毒霸");
+            av_list.Add("knsdtray.exe", "可牛杀毒");
+            av_list.Add("TMBMSRV.exe", "趋势杀毒");
+            av_list.Add("avcenter.exe", "Avira(小红伞)");
+            av_list.Add("avguard.exe", "Avira(小红伞)");
+            av_list.Add("avgnt.exe", "Avira(小红伞)");
+            av_list.Add("sched.exe", "Avira(小红伞)");
+            av_list.Add("ashDisp.exe", "Avast网络安全");
+            av_list.Add("rtvscan.exe", "诺顿杀毒");
+            av_list.Add("ccapp.exe", "Symantec Norton");
+            av_list.Add("NPFMntor.exe", "Norton杀毒软件相关进程");
+            av_list.Add("ccSetMgr.exe", "赛门铁克");
+            av_list.Add("ccRegVfy.exe", "Norton杀毒软件自身完整性检查程序");
+            av_list.Add("vptray.exe", "Norton病毒防火墙-盾牌图标程序");
+            av_list.Add("ksafe.exe", "金山卫士");
+            av_list.Add("QQPCRTP.exe", "QQ电脑管家");
+            av_list.Add("Miner.exe", "流量矿石");
+            av_list.Add("AYAgent.exe", "韩国胶囊");
+            av_list.Add("patray.exe", "安博士");
+            av_list.Add("V3Svc.exe", "安博士V3");
+            av_list.Add("avgwdsvc.exe", "AVG杀毒");
+            av_list.Add("QUHLPSVC.exe", "QUICK HEAL杀毒");
+            av_list.Add("mssecess.exe", "微软杀毒");
+            av_list.Add("SavProgress.exe", "Sophos杀毒");
+            av_list.Add("fsavgui.exe", "F-Secure杀毒");
+            av_list.Add("vsserv.exe", "比特梵德");
+            av_list.Add("remupd.exe", "熊猫卫士");
+            av_list.Add("FortiTray.exe", "飞塔");
+            av_list.Add("safedog.exe", "安全狗");
+            av_list.Add("parmor.exe", "木马克星");
+            av_list.Add("Iparmor.exe.exe", "木马克星");
+            av_list.Add("beikesan.exe", "贝壳云安全");
+            av_list.Add("KSWebShield.exe", "金山网盾");
+            av_list.Add("TrojanHunter.exe", "木马猎手");
+            av_list.Add("GG.exe", "巨盾网游安全盾");
+            av_list.Add("adam.exe", "绿鹰安全精灵");
+            av_list.Add("AST.exe", "超级巡警");
+            av_list.Add("ananwidget.exe", "墨者安全专家");
+            av_list.Add("AVK.exe", "GData");
+            av_list.Add("avg.exe", "AVG Anti-Virus");
+            av_list.Add("spidernt.exe", "Dr.web");
+            av_list.Add("avgaurd.exe", "Avira Antivir");
+            av_list.Add("vsmon.exe", "ZoneAlarm");
+            av_list.Add("cpf.exe", "Comodo");
+            av_list.Add("outpost.exe", "Outpost Firewall");
+            av_list.Add("rfwmain.exe", "瑞星防火墙");
+            av_list.Add("kpfwtray.exe", "金山网镖");
+            av_list.Add("FYFireWall.exe", "风云防火墙");
+            av_list.Add("MPMon.exe", "微点主动防御");
+            av_list.Add("pfw.exe", "天网防火墙");
+            av_list.Add("1433.exe", "在扫1433");
+            av_list.Add("DUB.exe", "在爆破");
+            av_list.Add("ServUDaemon.exe", "发现S-U");
+            av_list.Add("BaiduSdSvc.exe", "百度杀毒-服务进程");
+            av_list.Add("BaiduSdTray.exe", "百度杀毒-托盘进程");
+            av_list.Add("BaiduSd.exe", "百度杀毒-主程序");
+            av_list.Add("SafeDogGuardCenter.exe", "安全狗");
+            av_list.Add("safedogupdatecenter.exe", "安全狗");
+            av_list.Add("safedogguardcenter.exe", "安全狗");
+            av_list.Add("SafeDogSiteIIS.exe", "安全狗");
+            av_list.Add("SafeDogTray.exe", "安全狗");
+            av_list.Add("SafeDogServerUI.exe", "安全狗");
+            av_list.Add("D_Safe_Manage.exe", "D盾");
+            av_list.Add("d_manage.exe", "D盾");
+            av_list.Add("yunsuo_agent_service.exe", "云锁");
+            av_list.Add("yunsuo_agent_daemon.exe", "云锁");
+            av_list.Add("HwsPanel.exe", "护卫神");
+            av_list.Add("hws_ui.exe", "护卫神");
+            av_list.Add("hws.exe", "护卫神");
+            av_list.Add("hwsd.exe", "护卫神");
+            av_list.Add("hipstray.exe", "火绒");
+            av_list.Add("wsctrl.exe", "火绒");
+            av_list.Add("usysdiag.exe", "火绒");
+            av_list.Add("WEBSCANX.EXE", "网络病毒克星");
+            av_list.Add("SPHINX.EXE", "SPHINX防火墙");
+            av_list.Add("bddownloader.exe", "百度卫士");
+            av_list.Add("baiduansvx.exe", "百度卫士-主进程");
+            av_list.Add("AvastUI.exe", "Avast!5主程序");
             Cmd c = new Cmd();
             Console.WriteLine("正在获取杀软信息请稍等。。。\n\r");
             string resultStr = c.RunCmd("tasklist /svc");
             Console.WriteLine("存在杀软信息如下：");
-            foreach (JToken child in o.Children())
+            foreach (KeyValuePair<string, string> kvp in av_list)
             {
-                var property1 = child as JProperty;
-                if (resultStr.IndexOf(property1.Name) > -1)
+                if (resultStr.IndexOf(kvp.Key) > -1)
                 {
-                    Console.WriteLine(property1.Name + ":" + property1.Value);
+                    Console.WriteLine(kvp.Key + ":" + kvp.Value);
                 }
             }
         }
